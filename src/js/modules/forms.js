@@ -1,6 +1,6 @@
 const forms = () => {
     const forms = document.querySelectorAll('form');
-    const inputs = document.querySelectorAll('input');
+    const input = document.querySelectorAll('input');
     const phoneInputs = document.querySelectorAll('input[name="user_phone"]');
 
     phoneInputs.forEach(item => {
@@ -17,7 +17,7 @@ const forms = () => {
 
     const postData = async (url, data) => {
         document.querySelector('.status').textContent = message.loading;
-        let res = await fetch(url, {
+        const res = await fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -29,7 +29,7 @@ const forms = () => {
     };
 
     const clearInputs = () => {
-        inputs.forEach(item => {
+        input.forEach(item => {
             item.value = '';
         });
     };
