@@ -1,13 +1,10 @@
-const forms = () => {
+import checkNumInputs from "./checkNumInputs";
+
+const forms = (state) => {
     const forms = document.querySelectorAll('form');
     const input = document.querySelectorAll('input');
-    const phoneInputs = document.querySelectorAll('input[name="user_phone"]');
 
-    phoneInputs.forEach(item => {
-        item.addEventListener('input', () => {
-            item.value = item.value.replace(/\D/, '')
-        })
-    })
+    checkNumInputs('input[name="user_phone"]')
 
     const message = {
         loading: 'Загрузка...',
@@ -43,6 +40,11 @@ const forms = () => {
             item.appendChild(statusMessage);
 
             const formData = new FormData(item);
+            if (item.getAttribute('data-calc') === 'end') {
+                for (let key in state) {
+                    formData.append(key, state[key])
+                }
+            }
             const formDataEntries = Array.from(formData.entries());
 
             const jsonData = JSON.stringify(formDataEntries);

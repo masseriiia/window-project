@@ -3,8 +3,12 @@ import './modules/tabs'
 import tabs from "./modules/tabs";
 import modals from "./modules/modals";
 import forms from "./modules/forms";
+import changeModalState from "./modules/changeModalState";
 
 window.addEventListener('DOMContentLoaded', () => {
+
+    let modalState = {}
+
     modals()
     tabs({
         headerSelector: '.glazing_slider',
@@ -18,7 +22,15 @@ window.addEventListener('DOMContentLoaded', () => {
         contentSelector: '.decoration_content > div > div',
         activeClass: 'after_click'
     })
-    forms()
+    tabs({
+        headerSelector: '.balcon_icons',
+        tabSelector: '.balcon_icons_img',
+        contentSelector: '.big_img > img',
+        activeClass: 'do_image_more',
+        display: 'inline-block'
+    })
+    forms(modalState)
+    changeModalState(modalState)
 })
 
 
