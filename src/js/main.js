@@ -4,10 +4,12 @@ import tabs from "./modules/tabs";
 import modals from "./modules/modals";
 import forms from "./modules/forms";
 import changeModalState from "./modules/changeModalState";
+import timer from "./modules/timer";
 
 window.addEventListener('DOMContentLoaded', () => {
 
     let modalState = {}
+    const deadline = '2023-12-14'
 
     modals()
     tabs({
@@ -31,6 +33,7 @@ window.addEventListener('DOMContentLoaded', () => {
     })
     forms(modalState)
     changeModalState(modalState)
+    timer('.container1', deadline)
 })
 
 
