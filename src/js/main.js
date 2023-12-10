@@ -9,7 +9,7 @@ import timer from "./modules/timer";
 window.addEventListener('DOMContentLoaded', () => {
 
     let modalState = {}
-    let deadline = '2023-12-14'
+    const deadline = '2023-12-14'
 
     modals()
     tabs({
