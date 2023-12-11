@@ -4,7 +4,6 @@ import VitePluginBrowserSync from 'vite-plugin-browser-sync';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import htmlMinifier from 'vite-plugin-html-minifier';
 
-// https://vitejs.dev/config/
 export default defineConfig({
     server: {
         open: 'index.html',
@@ -27,7 +26,7 @@ export default defineConfig({
     ],
 
     build: {
-        outDir: 'public', // Изменено на 'public' для сохранения билда в эту папку
+        outDir: 'dist',
         rollupOptions: {
             output: {
                 chunkFileNames: 'assets/js/[name].js',
